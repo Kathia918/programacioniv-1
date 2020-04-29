@@ -6,16 +6,16 @@ var appBuscarPeliculas = new Vue({
     },
     methods:{
         buscarPelicula:function(){
-            fetch(`private/modulos/peliculas/procesos.php?proceso=buscarPelicula&pelicula=${this.valor}`).then(resp=>resp.json()).then(resp=>{
+            fetch(`private/modulos/peliculas/procesos.php?proceso=buscarPelicula&peliculas=${this.valor}`).then(resp=>resp.json()).then(resp=>{
                 this.mispeliculas = resp;
             });
         },
-        modificarPelicula:function(pelicula){
-            apppelicula.pelicula = pelicula;
-            apppelicula.pelicula.accion = 'modificar';
+        modificarPelicula:function(peliculas){
+            apppelicula.peliculas = peliculas;
+            apppelicula.peliculas.accion = 'modificar';
         },
         eliminarPelicula:function(idPelicula){
-            fetch(`private/modulos/peliculas/procesos.php?proceso=eliminarPelicula&pelicula=${idPelicula}`).then(resp=>resp.json()).then(resp=>{
+            fetch(`private/modulos/peliculas/procesos.php?proceso=eliminarPelicula&peliculas=${idPelicula}`).then(resp=>resp.json()).then(resp=>{
                 this.buscarPelicula();
             });
         }
