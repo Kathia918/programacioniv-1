@@ -1,12 +1,12 @@
 <?php 
-include('../../Config/config.php');
+include('../../config/config.php');
 $peliculas = new peliculas($conexion);
 
 $proceso = '';
 if( isset($_GET['proceso']) && strlen($_GET['proceso'])>0 ){
 	$proceso = $_GET['proceso'];
 }
-$clientes->$proceso( $_GET['peliculas'] );
+$peliculas->$proceso( $_GET['peliculas'] );
 print_r(json_encode($peliculas->respuesta));
 
 class peliculas{
